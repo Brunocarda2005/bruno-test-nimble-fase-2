@@ -3,6 +3,7 @@
   position: relative;
 }
 
+/* Loading screen */
 .loading-screen {
   min-height: 100vh;
   display: flex;
@@ -23,6 +24,302 @@
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* ─── Challenge View ─────────────────────────────────────── */
+.challenge-view {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  padding: 40px 20px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.challenge-layout {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header */
+.challenge-header {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glow);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.challenge-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(0, 201, 167, 0.12);
+  border: 1px solid rgba(0, 201, 167, 0.35);
+  border-radius: 20px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.challenge-greeting {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.challenge-sub {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.challenge-sub code {
+  font-family: monospace;
+  color: var(--accent);
+  background: rgba(0, 201, 167, 0.08);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.challenge-logout-btn {
+  margin-top: 8px;
+  padding: 8px 20px;
+  background: transparent;
+  border: 1px solid var(--border-glow);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.challenge-logout-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Sections */
+.challenge-section {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glow);
+  border-radius: 16px;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.step-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  background: rgba(0, 201, 167, 0.1);
+  border: 1px solid rgba(0, 201, 167, 0.3);
+  border-radius: 12px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  flex-shrink: 0;
+}
+
+.section-hint {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* DB Credentials */
+.db-credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--overlay-light);
+  border: 1px solid var(--overlay-border);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.copy-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--overlay-border);
+}
+
+.copy-field:last-child {
+  border-bottom: none;
+}
+
+.copy-field-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  min-width: 80px;
+}
+
+.copy-field-value-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.copy-field-value {
+  font-size: 13px;
+  font-family: monospace;
+  color: var(--text-primary);
+  word-break: break-all;
+  text-align: right;
+}
+
+.copy-btn {
+  background: var(--overlay-medium);
+  border: 1px solid var(--overlay-border);
+  border-radius: 6px;
+  padding: 5px 6px;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.copy-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Instructions */
+.instructions-box {
+  background: var(--overlay-light);
+  border: 1px solid var(--overlay-border);
+  border-radius: 10px;
+  padding: 16px;
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Submit form */
+.submit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.submit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.submit-field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.submit-field input {
+  padding: 11px 14px;
+  background: var(--overlay-light);
+  border: 1px solid var(--overlay-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.submit-field input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 201, 167, 0.15);
+}
+
+.submit-field input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submit-field input::placeholder {
+  color: var(--text-muted);
+}
+
+.submit-btn {
+  padding: 13px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #00e0bb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 201, 167, 0.35);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.submit-success {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  background: rgba(0, 201, 167, 0.1);
+  border: 1px solid rgba(0, 201, 167, 0.3);
+  border-radius: 10px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.submit-error {
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  color: #fca5a5;
+  font-size: 13px;
+}
+
 
 /* Challenge View (post-login) */
 .challenge-view {

@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { useAuthContext } from "@/hooks";
-import "./LoginPage.css";
 import { isError, isValidEmail } from "@/utils";
+import { EmailIcon, AlertIcon } from "@/components/icons/Icons";
+import styles from "./Login.module.css";
+import Input from "./components/Input";
+import Button from "./components/Button";
 
+// ─── Component ────────────────────────────────────────────
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -29,56 +33,53 @@ const LoginPage: React.FC = () => {
     try {
       await login(email);
     } catch (err) {
-      const valid = isError(err) && err.message === "INVALID_EMAIL";
-      setError(valid ? "El email ingresado no está autorizado." : "Error al autenticar. Intenta nuevamente.");
+      const isInvalidEmail = isError(err) && err.message === "INVALID_EMAIL";
+      setError(
+        isInvalidEmail
+          ? "El email ingresado no está autorizado."
+          : "Error al autenticar. Intenta nuevamente.",
+      );
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="login-page">
-      <div className="login-container">
-        <div className="login-card">
-          <div className="login-header">
-            <span className="login-fase-badge">FASE 2</span>
-            <h1 className="login-title">Nimble Challenge</h1>
-            <p className="login-subtitle">Ingresa tu email para acceder al segundo desafío</p>
-          </div>
-
-          <form className="login-form" onSubmit={handleSubmit}>
-            <div className="login-form-group">
-              <label htmlFor="email" className="login-form-label">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                className="login-form-input"
-                placeholder="tu.email@ejemplo.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                disabled={isLoading}
-                autoFocus
-              />
-            </div>
-
-            {error && (
-              <div className="login-error-message" role="alert">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
-                  <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="2" />
-                  <path d="M8 4v4M8 10h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-                <span>{error}</span>
-              </div>
-            )}
-
-            <button type="submit" className="login-button" disabled={isLoading}>
-              {isLoading ? "Autenticando..." : "Continuar"}
-            </button>
-          </form>
+    <div className={styles.page}>
+      <div className={styles.card}>
+        {/* Header */}
+        <div className={styles.header}>
+          <span className={styles.badge}>FASE 2</span>
+          <h1 className={styles.title}>Welcome back</h1>
+          <p className={styles.subtitle}>Sign in to continue</p>
         </div>
+
+        {/* Form */}
+        <form className={styles.form} onSubmit={handleSubmit} noValidate>
+          <Input
+            id="email"
+            label="Email"
+            type="email"
+            placeholder="tu.email@ejemplo.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            icon={<EmailIcon />}
+            disabled={isLoading}
+            autoFocus
+            autoComplete="email"
+          />
+
+          {error && (
+            <div className={styles.error} role="alert">
+              <AlertIcon />
+              <span>{error}</span>
+            </div>
+          )}
+
+          <Button type="submit" loading={isLoading}>
+            {isLoading ? "Autenticando..." : "Continuar"}
+          </Button>
+        </form>
       </div>
     </div>
   );
