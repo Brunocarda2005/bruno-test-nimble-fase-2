@@ -1,0 +1,104 @@
+/* Variables para tema oscuro (por defecto) */
+:root,
+[data-theme="dark"] {
+  --bg-primary: #0e1512;
+  --bg-surface: #0a110e;
+  --accent: #00c9a7;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #6b7280;
+  --border-glow: rgba(0, 201, 167, 0.25);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  
+  /* Overlays y efectos */
+  --overlay-light: rgba(255, 255, 255, 0.05);
+  --overlay-medium: rgba(255, 255, 255, 0.08);
+  --overlay-border: rgba(255, 255, 255, 0.1);
+  --glow-primary: rgba(0, 201, 167, 0.3);
+  --glow-secondary: rgba(0, 201, 167, 0.15);
+  
+  color-scheme: dark;
+}
+
+/* Variables para tema claro */
+[data-theme="light"] {
+  --bg-primary: #f0faf7;
+  --bg-surface: #f7fdfb;
+  --accent: #00a88c;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --border-glow: rgba(0, 168, 140, 0.25);
+  --shadow-sm: 0 2px 8px rgba(0, 80, 60, 0.08);
+  --shadow-md: 0 4px 20px rgba(0, 80, 60, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 80, 60, 0.15);
+  
+  /* Overlays y efectos */
+  --overlay-light: rgba(0, 80, 60, 0.04);
+  --overlay-medium: rgba(0, 80, 60, 0.08);
+  --overlay-border: rgba(0, 80, 60, 0.12);
+  --glow-primary: rgba(0, 168, 140, 0.25);
+  --glow-secondary: rgba(0, 168, 140, 0.12);
+  
+  color-scheme: light;
+}
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input {
+  font-family: inherit;
+  outline: none;
+}
